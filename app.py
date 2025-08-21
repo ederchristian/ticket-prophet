@@ -20,21 +20,22 @@ st.title("Fake Ticket Price Prophet")
 st.markdown("### FAKE DATA ENVIRONMENT - Predict if fake ticket prices will go UP or DOWN")
 
 
-@st.cache_data
 def get_fake_event_names():
-    fake_files = glob.glob("fake_json/*.json")
-    events = set()
+    events = [
+        'austin-fc-at-la-galaxy',
+        'chargers-at-49ers',
+        'dodgers-at-angels',
+        'justin-bieber-in-la',
+        'knicks-at-lakers',
+        'olivia-rodrigo-in-sao-paulo',
+        'post-malone-in-nashville',
+        'sharks-at-ny-rangers',
+        'taylor-swift-in-ny',
+        'warriors-at-pelicans'
+    ]
+    return events
 
-    for file_path in fake_files:
-        filename = file_path.split('/')[-1]
-        parts = filename.replace('.json', '').split('-')
-        event_name = '-'.join(parts[:-3])
-        events.add(event_name)
 
-    return sorted(list(events))
-
-
-@st.cache_data
 def get_fake_event_display_names():
     events = get_fake_event_names()
     display_names = []
@@ -53,11 +54,6 @@ def get_fake_event_display_names():
 
 
 fake_event_names, fake_display_names = get_fake_event_display_names()
-
-# Fallback if no fake events found
-if not fake_display_names:
-    fake_display_names = ["Austin FC at LA Galaxy", "Chargers at 49ers", "Taylor Swift in NY"]
-    fake_event_names = ["austin-fc-at-la-galaxy", "chargers-at-49ers", "taylor-swift-in-ny"]
 
 
 @st.cache_resource
