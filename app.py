@@ -122,8 +122,11 @@ with st.form("prediction_form"):
             help="Choose from our fake event list"
         )
 
-        fake_event_index = fake_display_names.index(event_display_selected)
-        event_selected = fake_event_names[fake_event_index]
+        if event_display_selected and event_display_selected in fake_display_names:
+            fake_event_index = fake_display_names.index(event_display_selected)
+            event_selected = fake_event_names[fake_event_index]
+        else:
+            event_selected = None
 
         available_sections = sorted(le_section.classes_)
         available_rows = sorted(le_row.classes_)
