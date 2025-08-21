@@ -25,16 +25,6 @@ chmod +x run_app.sh
 
 The app will be available at: `http://localhost:8501`
 
-### 2. Generate/Retrain Model
-
-```bash
-# Activate virtual environment
-source analysis/ticket_env/bin/activate
-
-# Train the model (generates ticket_price_model.joblib)
-python train_model.py
-```
-
 ## How It Works
 
 The model uses a **Random Forest Classifier** trained on real ticket price data from multiple events including:
