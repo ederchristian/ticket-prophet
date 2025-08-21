@@ -1,6 +1,6 @@
-# 🎫 Ticket Price Prophet
+# Ticket Price Prophet
 
-A machine learning web application that predicts whether ticket prices will go **UP** 📈 or **DOWN** 📉 based on historical data and market conditions.
+A machine learning web application that predicts whether ticket prices will go **UP** or **DOWN**. This demo uses synthetic/fake data for testing purposes.
 
 ## Features
 
@@ -13,28 +13,24 @@ A machine learning web application that predicts whether ticket prices will go *
 
 ## Quick Start
 
-### 1. Run the Web App
+### Run the Web App
 
 ```bash
-# Make script executable (first time only)
-chmod +x run_app.sh
-
-# Start the app
-./run_app.sh
+streamlit run app.py
 ```
 
 The app will be available at: `http://localhost:8501`
 
 ## How It Works
 
-The model uses a **Random Forest Classifier** trained on real ticket price data from multiple events including:
+The model uses a **Random Forest Classifier** trained on synthetic ticket price data from multiple events including:
 
 - Coldplay, Lady Gaga, Paul McCartney, Shawn Mendes
 - NFL games (Broncos, Chargers, Seahawks)
 - US Open Tennis
 - And more...
 
-### Key Features Used:
+### Key Features Used
 
 - Current ticket price
 - Historical prices (1, 3, 7 days ago)
@@ -43,28 +39,11 @@ The model uses a **Random Forest Classifier** trained on real ticket price data 
 - Section and row information
 - Event type
 
-### Model Performance:
+### Model Performance
 
 - **Accuracy**: 88.2%
 - **Precision**: 89%
 - **Cross-validation**: 85.3% ± 7.5%
-
-## Project Structure
-
-```
-ticket-prophet/
-├── app.py                          # Streamlit web application
-├── train_model.py                  # ML model training script
-├── ticket_price_model.joblib       # Trained model (generated)
-├── run_app.sh                      # App startup script
-├── requirements.txt                # Python dependencies
-├── json/                          # Historical ticket data
-├── analysis/                      # Jupyter notebooks
-│   ├── ticket_env/               # Virtual environment
-│   └── *.ipynb                   # Analysis notebooks
-└── scripts/                      # CSV datasets
-    └── *.csv                     # Processed data files
-```
 
 ## Data Sources
 
