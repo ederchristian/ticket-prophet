@@ -54,6 +54,11 @@ def get_fake_event_display_names():
 
 fake_event_names, fake_display_names = get_fake_event_display_names()
 
+# Fallback if no fake events found
+if not fake_display_names:
+    fake_display_names = ["Austin FC at LA Galaxy", "Chargers at 49ers", "Taylor Swift in NY"]
+    fake_event_names = ["austin-fc-at-la-galaxy", "chargers-at-49ers", "taylor-swift-in-ny"]
+
 
 @st.cache_resource
 def load_model():
@@ -93,7 +98,7 @@ st.sidebar.markdown("""
 This app uses the same Random Forest machine learning model as production but with fake event names for safe testing.
 
 **Quick Mode (Recommended):**
-- Just enter basic fake ticket info
+- Just enter basic ticket info
 - Model auto-generates reasonable historical data
 - Fast predictions with good accuracy
 
@@ -110,16 +115,16 @@ le_section = model_data['le_section']
 le_row = model_data['le_row']
 real_event_names = model_data['event_names']
 
-st.header("Make Your Fake Prediction")
+st.header("Make Your Prediction")
 
 with st.form("prediction_form"):
     col1, col2 = st.columns(2)
 
     with col1:
         event_display_selected = st.selectbox(
-            "Select Fake Event",
+            "Select Event",
             options=fake_display_names,
-            help="Choose from our fake event list"
+            help="Choose from our event list"
         )
 
         if event_display_selected and event_display_selected in fake_display_names:
@@ -347,7 +352,7 @@ with st.form("prediction_form"):
             fig_trend = px.line(price_df, x='Days Ago', y='Price ($)',
                                title="Historical Price Trend",
                                markers=True)
-            fig_trend.update_xaxis(autorange="reversed")
+            fig_trend.update_layout(xaxis=dict(autorange="reversed"))
             st.plotly_chart(fig_trend, use_container_width=True)
 
             st.subheader("Input Summary")
