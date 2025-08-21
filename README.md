@@ -72,3 +72,4 @@ The model is trained on historical ticket price data from:
 ---
 
 **Disclaimer**: Predictions are estimates based on historical data. Actual ticket prices may vary due to market conditions, demand fluctuations, and external factors.
+# Ticket Prophet - Updated Qua 20 Ago 2025 23:56:19 -03
