@@ -1,4 +1,4 @@
-# Ticket Price Prophet
+# Ticket Prophet
 
 A machine learning web application that predicts whether ticket prices will go **UP** or **DOWN**. This demo uses synthetic/fake data for testing purposes.
 
